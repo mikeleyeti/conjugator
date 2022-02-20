@@ -9,9 +9,7 @@ function App() {
         🏗️ Appli. de conjugaison en cours de construction 🏗️
         </p>
       </header> */}
-      <body>
-        <Conjug />
-      </body>
+      <Conjug />
     </div>
   );
 }
