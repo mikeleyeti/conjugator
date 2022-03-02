@@ -1,8 +1,6 @@
 import verbs from "../datas/verbs-fr.json"
 import conjugation from "../datas/conjugation-fr.json"
 
-const pronoms = ['Je','Tu','Elle','Nous','Vous','Elles']
-
 function listeVerbes() {
     // Renvoie la liste des verbes du fichier "verbs-fr.json"
     // Chaque élément de la liste est un objet constitué des clés
@@ -105,4 +103,4 @@ function listeVerbes() {
 
   }
 
-export {listeVerbes,chercherTemplate,choix_1_verbe,conjuguer,conjuguerAvecPronom,pronoms}
+export {listeVerbes,chercherTemplate,choix_1_verbe,conjuguer,conjuguerAvecPronom}
