@@ -44,7 +44,31 @@ function listeVerbes() {
 
   // Cherche le modèle de conjugaison
     let indexConjugation = chercherTemplate(verbe.modele)
-    let tabConjug = conjugation["conjugation-fr"].template[indexConjugation].indicative.present.p
+    let tabConjug = []
+    if (temps === 'indicatif_present') {
+      tabConjug = conjugation["conjugation-fr"].template[indexConjugation].indicative.present.p
+    }
+    if (temps === 'indicatif_imparfait') {
+      tabConjug = conjugation["conjugation-fr"].template[indexConjugation].indicative.imperfect.p
+    }
+    if (temps === 'indicatif_futur') {
+      tabConjug = conjugation["conjugation-fr"].template[indexConjugation].indicative.future.p
+    }
+    if (temps === 'indicatif_passe_simple') {
+      tabConjug = conjugation["conjugation-fr"].template[indexConjugation].indicative["simple-past"].p
+    }
+    if (temps === 'conditionnel_present') {
+      tabConjug = conjugation["conjugation-fr"].template[indexConjugation].conditional.present.p
+    }
+    if (temps === 'subjontif_present') {
+      tabConjug = conjugation["conjugation-fr"].template[indexConjugation].subjunctive.present.p
+    }
+    if (temps === 'subjontif_imparfait') {
+      tabConjug = conjugation["conjugation-fr"].template[indexConjugation].subjunctive.imperfect.p
+    }
+    if (temps === 'imperatif_present') {
+      tabConjug = conjugation["conjugation-fr"].template[indexConjugation].imperative["imperative-present"].p
+    }
     let  verbe_conjugue = []
     for (let index = 0; index < tabConjug.length; index++) {
       const terminaison = tabConjug[index].i[0];
@@ -57,13 +81,24 @@ function listeVerbes() {
 
 
 
-  function conjuguerAvecPronom(pronoms,verbe_conjugue) {
+  function conjuguerAvecPronom(verbe_conjugue) {
+    // 6 pronoms sauf pour l'imperatif
     const appostrophe = ['a','e','i','o','u','y','h','é','è','î','û','ô']
     let verbes_avec_pronoms = []
-    appostrophe.includes(verbe_conjugue[0][0]) ? verbes_avec_pronoms.push("J'" + verbe_conjugue[0]) : verbes_avec_pronoms.push("Je "+ verbe_conjugue[0])
-    for (let index = 1; index < pronoms.length; index++) {
-      const element = pronoms[index] + ' ' + verbe_conjugue[index] ;
-      verbes_avec_pronoms.push(element)
+    let pronoms
+    if (verbe_conjugue.length === 6) {
+      appostrophe.includes(verbe_conjugue[0][0]) ? verbes_avec_pronoms.push("J'" + verbe_conjugue[0]) : verbes_avec_pronoms.push("Je "+ verbe_conjugue[0])
+      pronoms = ['Je','Tu','Elle/Il','Nous','Vous','Elles/Ils']
+      for (let index = 1; index < pronoms.length; index++) {
+        const element = pronoms[index] + ' ' + verbe_conjugue[index] ;
+        verbes_avec_pronoms.push(element)
+      }
+    } else {
+      pronoms = ['Tu','Nous','Vous']
+      for (let index = 0; index < pronoms.length; index++) {
+        const element = pronoms[index] + ' ' + verbe_conjugue[index] ;
+        verbes_avec_pronoms.push(element)
+      }
     }
     return verbes_avec_pronoms
 
