@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/conjugator/static/css/main.7619ee53.css",
-    "main.js": "/conjugator/static/js/main.2edea9c3.js",
+    "main.js": "/conjugator/static/js/main.65cc5069.js",
     "index.html": "/conjugator/index.html",
     "main.7619ee53.css.map": "/conjugator/static/css/main.7619ee53.css.map",
-    "main.2edea9c3.js.map": "/conjugator/static/js/main.2edea9c3.js.map"
+    "main.65cc5069.js.map": "/conjugator/static/js/main.65cc5069.js.map"
   },
   "entrypoints": [
     "static/css/main.7619ee53.css",
-    "static/js/main.2edea9c3.js"
+    "static/js/main.65cc5069.js"
   ]
 }
