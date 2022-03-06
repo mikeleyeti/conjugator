@@ -103,4 +103,27 @@ function listeVerbes() {
 
   }
 
-export {listeVerbes,chercherTemplate,choix_1_verbe,conjuguer,conjuguerAvecPronom}
+  function affichageTemps(tempsBrut) {
+    // Affichage en français du temps utilisé
+    let affichage
+    if (tempsBrut === "indicatif_present") {
+      affichage = "Présent de l'indicatif"
+    } else if (tempsBrut === "indicatif_imparfait") {
+      affichage = "Imparfait de l'indicatif"
+    } else if (tempsBrut === "indicatif_futur") {
+      affichage = "Futur de l'indicatif"
+    } else if (tempsBrut === "indicatif_passe_simple") {
+      affichage = "Passé simple de l'indicatif"
+    } else if (tempsBrut === "conditionnel_present") {
+      affichage = "Présent du conditionnel"
+    } else if (tempsBrut === "subjontif_present") {
+      affichage = "Présent du subjonctif"
+    } else if (tempsBrut === "subjontif_imparfait") {
+      affichage = "Imparfait du subjonctif"
+    } else if (tempsBrut === "imperatif_present") {
+      affichage = "Présent de l'impératif"
+    }
+    return affichage  
+  }
+
+export {listeVerbes,chercherTemplate,choix_1_verbe,conjuguer,conjuguerAvecPronom,affichageTemps}

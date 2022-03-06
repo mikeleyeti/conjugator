@@ -1,33 +1,10 @@
-import { listeVerbes,conjuguer,conjuguerAvecPronom } from "../scripts/conjuguer" 
+import { listeVerbes,conjuguer,conjuguerAvecPronom,affichageTemps  } from "../scripts/conjuguer" 
 import '../styles/Conjugator.css';
 
 // Temps disponibles :
 // const liste_temps = ['indicatif_present','indicatif_imparfait','indicatif_futur','indicatif_passe_simple','conditionnel_present','subjontif_present','subjontif_imparfait','imperatif_present' ]
 
 function Conjug({verbe , updateVerbe , temps , updateTempsAffiché}) {    
-
-  function affichageTemps(tempsBrut) {
-    // Affichage en français du temps utilisé
-    let affichage
-    if (tempsBrut === "indicatif_present") {
-      affichage = "Présent de l'indicatif"
-    } else if (tempsBrut === "indicatif_imparfait") {
-      affichage = "Imparfait de l'indicatif"
-    } else if (tempsBrut === "indicatif_futur") {
-      affichage = "Futur de l'indicatif"
-    } else if (tempsBrut === "indicatif_passe_simple") {
-      affichage = "Passé simple de l'indicatif"
-    } else if (tempsBrut === "conditionnel_present") {
-      affichage = "Présent du conditionnel"
-    } else if (tempsBrut === "subjontif_present") {
-      affichage = "Présent du subjonctif"
-    } else if (tempsBrut === "subjontif_imparfait") {
-      affichage = "Imparfait du subjonctif"
-    } else if (tempsBrut === "imperatif_present") {
-      affichage = "Présent de l'impératif"
-    }
-    return affichage  
-  }
 
   const liste_verbes = listeVerbes();
   // Détermine l'index du verbe dans la liste des "objets" verbes
