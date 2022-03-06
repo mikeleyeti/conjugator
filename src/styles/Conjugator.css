@@ -1,0 +1,5 @@
+.Conjugator-bloc {
+    display: inline-flex;
+    flex-direction: column;
+    padding: 20px;
+}
