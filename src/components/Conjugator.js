@@ -3,7 +3,7 @@ import { listeVerbes,conjuguer,conjuguerAvecPronom } from "../scripts/conjuguer"
 // Temps disponibles :
 // const liste_temps = ['indicatif_present','indicatif_imparfait','indicatif_futur','indicatif_passe_simple','conditionnel_present','subjontif_present','subjontif_imparfait','imperatif_present' ]
 
-function Conjug({verbe , updateVerbe , temps , updateTemps}) {    
+function Conjug({verbe , updateVerbe , temps , updateTempsAffiché}) {    
 
   const liste_verbes = listeVerbes();
   // Détermine l'index du verbe dans la liste des "objets" verbes
