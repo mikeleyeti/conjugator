@@ -10,6 +10,15 @@ function App() {
   const [tempsAffichés , updateTempsAffichés] = useState(tempsParDefaut)
   const [verbe, updateVerbe] = useState('aimer')
   // const [temps, updateTemps] = useState('indicatif_present')
+  const liste_des_verbes = listeVerbes()
+
+  function handleVerbe(event) {
+    let verbe = event.target.value
+    let index_verbe = liste_des_verbes.findIndex( (obj) => obj.infinitif === verbe )
+    if (index_verbe !== -1) {
+        updateVerbe(liste_des_verbes[index_verbe].infinitif)
+    }
+  }
 
   return (    
     <div className="App">
@@ -18,12 +27,15 @@ function App() {
         🏗️ Appli. de conjugaison en cours de construction 🏗️
         </p>
       </header>
+      <div>      
         <button onClick={() => (updateVerbe(choix_1_verbe(listeVerbes()).infinitif))}  > Choisir un verbe aléatoire </button>
         <button onClick={() => (updateTempsAffichés({'indicatif_present' : true,'indicatif_imparfait':true,'indicatif_futur':true,'indicatif_passe_simple':true,'conditionnel_present':true,'subjontif_present':true,'subjontif_imparfait':true,'imperatif_present':true}))} > Tous </button>
-      <form>
-        {Object.entries(tempsAffichés).map( ([cle,valeur]) => ( <ChoixTemps temps={cle} tempsAffichés={tempsAffichés} updateTempsAffichés={updateTempsAffichés} key={cle}   />  ) )}        
-      </form>
+        <input type="search" id="recherche-verbe" name="v" placeholder={verbe} onChange={(event) => handleVerbe(event)} />
+      </div>
+      {Object.entries(tempsAffichés).map( ([cle,valeur]) => ( <ChoixTemps temps={cle} tempsAffichés={tempsAffichés} updateTempsAffichés={updateTempsAffichés} key={cle}   />  ) )}        
+      <div>
       {Object.entries(tempsAffichés).map( ([cle,valeur]) => (valeur ? <Conjug verbe={verbe} key={cle+':'+verbe} updateVerbe={updateVerbe} temps={cle} updateTempsAffichés = {updateTempsAffichés}/> : null ) )}
+      </div>
       {/* <Conjug verbe="être"  updateVerbe={updateVerbe} temps={temps} updateTemps = {updateTemps}/> */}
     </div>
   );
