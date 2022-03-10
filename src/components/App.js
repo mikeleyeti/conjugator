@@ -13,7 +13,7 @@ function App() {
   const liste_des_verbes = listeVerbes()
 
   function handleVerbe(event) {
-    let verbe = event.target.value
+    let verbe = event.target.value.toLowerCase()
     let index_verbe = liste_des_verbes.findIndex( (obj) => obj.infinitif === verbe )
     if (index_verbe !== -1) {
         updateVerbe(liste_des_verbes[index_verbe].infinitif)
