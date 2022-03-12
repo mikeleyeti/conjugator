@@ -73,16 +73,26 @@ function listeVerbes() {
       let  verbe_conjugue = []
       for (let index = 0; index < tabConjug.length; index++) {
         const terminaison = tabConjug[index].i[0];
-        let terminaisonVerbe = conjugation["conjugation-fr"].template[indexConjugation].participle["past-participle"].p[0].i[0]
+        let terminaisonVerbe
+        try {
+          terminaisonVerbe = conjugation["conjugation-fr"].template[indexConjugation].participle["past-participle"].p[0].i[0]
+        } catch (error) {
+          return null
+        }        
         verbe_conjugue.push(terminaison + ' ' +radical + terminaisonVerbe)
       }
       return verbe_conjugue
     }
     let  verbe_conjugue = []
-    for (let index = 0; index < tabConjug.length; index++) {
-      const terminaison = tabConjug[index].i[0];
-      verbe_conjugue.push(radical + terminaison)
-    }    
+    try {
+      for (let index = 0; index < tabConjug.length; index++) {
+        const terminaison = tabConjug[index].i[0];
+        verbe_conjugue.push(radical + terminaison)
+      }   
+    } catch (error) {
+      return null
+    }
+     
     // Ajoute la premiere personne en double (présent de l'indicatif je = tu pour certains verbes)
     // return verbe_conjugue.length === 6 ?  verbe_conjugue : verbe_conjugue[0].concat(verbe_conjugue)
     return verbe_conjugue
@@ -91,6 +101,10 @@ function listeVerbes() {
 
 
   function conjuguerAvecPronom(verbe_conjugue) {
+    // Gestion du cas où la conjugaison n'existe pas
+    if (verbe_conjugue === null) {
+      return ['Conjugaison impossible']
+    }
     // 6 pronoms sauf pour l'imperatif
     const appostrophe = ['a','e','i','o','u','y','h','é','è','î','û','ô']
     let verbes_avec_pronoms = []
