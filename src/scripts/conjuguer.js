@@ -67,6 +67,17 @@ function listeVerbes() {
     if (temps === 'imperatif_present') {
       tabConjug = conjugation["conjugation-fr"].template[indexConjugation].imperative["imperative-present"].p
     }
+    if (temps === 'passe_compose') {
+      let indexConjugationAuxiliaire = chercherTemplate(":avoir")
+      tabConjug = conjugation["conjugation-fr"].template[indexConjugationAuxiliaire].indicative.present.p
+      let  verbe_conjugue = []
+      for (let index = 0; index < tabConjug.length; index++) {
+        const terminaison = tabConjug[index].i[0];
+        let terminaisonVerbe = conjugation["conjugation-fr"].template[indexConjugation].participle["past-participle"].p[0].i[0]
+        verbe_conjugue.push(terminaison + ' ' +radical + terminaisonVerbe)
+      }
+      return verbe_conjugue
+    }
     let  verbe_conjugue = []
     for (let index = 0; index < tabConjug.length; index++) {
       const terminaison = tabConjug[index].i[0];
@@ -122,6 +133,8 @@ function listeVerbes() {
       affichage = "Imparfait du subjonctif"
     } else if (tempsBrut === "imperatif_present") {
       affichage = "Présent de l'impératif"
+    } else if (tempsBrut === "passe_compose") {
+      affichage = "Passé composé"
     }
     return affichage  
   }

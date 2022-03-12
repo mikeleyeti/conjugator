@@ -6,7 +6,7 @@ import { useState } from 'react'
 
 function App() {  
   // tempsAffichés est un dictionnaire dont les clés sont les temps dispo. et les valeurs des booléens décidant de l'affichage
-  const tempsParDefaut = {'indicatif_present' : true,'indicatif_imparfait':false,'indicatif_futur':false,'indicatif_passe_simple':false,'conditionnel_present':false,'subjontif_present':false,'subjontif_imparfait':false,'imperatif_present':false}
+  const tempsParDefaut = {'indicatif_present' : true,'indicatif_imparfait':false,'indicatif_futur':false,'indicatif_passe_simple':false,'conditionnel_present':false,'subjontif_present':false,'subjontif_imparfait':false,'imperatif_present':false , 'passe_compose': false}
   const [tempsAffichés , updateTempsAffichés] = useState(tempsParDefaut)
   const [verbe, updateVerbe] = useState('aimer')
   // const [temps, updateTemps] = useState('indicatif_present')
