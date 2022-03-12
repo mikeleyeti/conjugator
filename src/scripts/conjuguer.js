@@ -148,7 +148,7 @@ function listeVerbes() {
     } else if (tempsBrut === "imperatif_present") {
       affichage = "Présent de l'impératif"
     } else if (tempsBrut === "passe_compose") {
-      affichage = "Passé composé"
+      affichage = "Passé composé ⚠️ Pas finalisé ⚠️ "
     }
     return affichage  
   }
