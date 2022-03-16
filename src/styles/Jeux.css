@@ -1,0 +1,18 @@
+aside {
+    width: 20%;
+    padding-left: .5rem;
+    margin-left: .5rem;
+    float: left;
+    border-style : solid ;
+	border-color : black ;
+	border-width : 3px;
+	background-color: #CCC;
+}
+
+#engrenage {
+    float: left;
+}
+
+#engrenage:hover{
+    filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(20deg) brightness(118%) contrast(119%);
+}

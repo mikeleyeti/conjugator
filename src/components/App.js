@@ -1,8 +1,9 @@
 import '../styles/App.css';
-import Conjug from './Conjugator'
+import Conjug from './Conjugator';
 import ChoixTemps from "./ChoixTemps";
+import Jeux from './Jeux';
 import { choix_1_verbe , listeVerbes } from "../scripts/conjuguer";
-import { useState } from 'react'
+import { useState } from 'react';
 
 function App() {  
   // tempsAffichés est un dictionnaire dont les clés sont les temps dispo. et les valeurs des booléens décidant de l'affichage
@@ -51,6 +52,11 @@ function App() {
         </div> 
       </div>
       : null }
+      {modeApplication === 'Jeux' ?
+      <div id='Jeux'>
+        <Jeux/>
+      </div>
+      : null}
     </div>
   );
 }
