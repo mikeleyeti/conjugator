@@ -1,4 +1,3 @@
-import '../styles/App.css';
 import Conjug from './Conjugator';
 import ChoixTemps from "./ChoixTemps";
 import Jeux from './Jeux';
@@ -28,17 +27,27 @@ function App() {
   }
 
   return (    
-    <div className="App">
-      <header className="App-header">
-        <p>
-        🏗️ Appli. de conjugaison en cours de construction 🏗️
-        </p>
-        <div>
-          <button id='Conjugueur' onClick={(event) => handleModeApplication(event)}> Conjugueur </button>
-          <button id='Cours' onClick={(event) => handleModeApplication(event)}> Cours </button>
-          <button id='Jeux' onClick={(event) => handleModeApplication(event)}> Jeux </button>
+    <div> 
+      <nav className="navbar is-primary" role="navigation" aria-label="main navigation">
+      <div className="navbar-brand">
+      <a className="navbar-item" href="#">
+      <h1 className="title">🏗️ </h1>
+      </a>
+    <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+    </div>
+    <div class="navbar-menu">
+        <div className="buttons are-medium ">        
+          <button className="button is-info" id='Conjugueur' onClick={(event) => handleModeApplication(event)}> Conjugueur </button>
+          <button className="button is-info" id='Cours' onClick={(event) => handleModeApplication(event)}> Cours </button>
+          <button className="button is-primary" id='Jeux' onClick={(event) => handleModeApplication(event)}> Jeux </button>
+        
         </div>
-      </header>
+        </div>
+        </nav>
       {modeApplication === 'Conjugueur' ? 
       <div id='Conjugueur'>
         <div>      
@@ -56,7 +65,7 @@ function App() {
       <div id='Jeux'>
         <Jeux/>
       </div>
-      : null}
+      : null}      
     </div>
   );
 }
